@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitDay | Seu treino, no seu ritmo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">F</span> FitDay</a>
+    <div id="user-area" class="user-area hidden">
+      <span id="welcome"></span>
+      <button id="logout" class="btn btn-outline">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="auth-view" class="auth-layout">
+      <div class="hero">
+        <p class="eyebrow">MOVIMENTO QUE CABE NA SUA ROTINA</p>
+        <h1>Cuide do seu ritmo.<br><span>Um dia de cada vez.</span></h1>
+        <p>Organize seus exercícios em casa, registre suas atividades e acompanhe sua constância.</p>
+        <div class="hero-note">Treinos informativos. Respeite seus limites e procure orientação profissional quando necessário.</div>
+      </div>
+      <div class="panel auth-panel">
+        <div class="tabs">
+          <button class="tab active" data-tab="login">Entrar</button>
+          <button class="tab" data-tab="register">Criar conta</button>
+        </div>
+        <form id="login-form">
+          <h2>Bem-vindo de volta</h2>
+          <label>E-mail<input type="email" id="login-email" required autocomplete="email"></label>
+          <label>Senha<input type="password" id="login-password" required autocomplete="current-password"></label>
+          <button class="btn btn-primary full">Entrar no FitDay</button>
+        </form>
+        <form id="register-form" class="hidden">
+          <h2>Crie sua conta</h2>
+          <label>Nome<input type="text" id="register-name" minlength="2" maxlength="100" required></label>
+          <label>E-mail<input type="email" id="register-email" required autocomplete="email"></label>
+          <label>Senha (mínimo 8 caracteres)<input type="password" id="register-password" minlength="8" required autocomplete="new-password"></label>
+          <button class="btn btn-primary full">Cadastrar</button>
+        </form>
+        <p id="auth-message" class="message" role="status"></p>
+      </div>
+    </section>
+
+    <section id="app-view" class="hidden">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">SEU ESPAÇO</p><h1>Seu progresso, <span>no seu ritmo.</span></h1></div>
+        <span id="role-pill" class="role-pill"></span>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><span>Treinos registrados</span><strong id="stat-workouts">0</strong></article>
+        <article class="stat-card"><span>Minutos de atividade</span><strong id="stat-minutes">0</strong></article>
+        <article class="stat-card"><span>Dias ativos</span><strong id="stat-days">0</strong></article>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel">
+          <div class="section-heading"><div><p class="eyebrow">BIBLIOTECA</p><h2>Exercícios</h2></div></div>
+          <p class="muted">Consulte opções para organizar sua rotina.</p>
+          <div id="exercise-form-wrap" class="form-box hidden">
+            <h3 id="exercise-form-title">Adicionar exercício</h3>
+            <form id="exercise-form" class="compact-form">
+              <input type="hidden" id="exercise-id">
+              <label>Nome<input id="exercise-name" required maxlength="100"></label>
+              <label>Grupo muscular<input id="exercise-group" required maxlength="60"></label>
+              <label>Nível<select id="exercise-level"><option value="iniciante">Iniciante</option><option value="intermediario">Intermediário</option><option value="avancado">Avançado</option></select></label>
+              <label>Duração (minutos)<input id="exercise-duration" type="number" min="1" max="180" required></label>
+              <label class="wide">Descrição<textarea id="exercise-description" required minlength="5"></textarea></label>
+              <div class="form-actions wide"><button class="btn btn-primary" type="submit">Salvar exercício</button><button class="btn btn-outline" id="cancel-exercise" type="button">Cancelar</button></div>
+            </form>
+          </div>
+          <div id="exercise-list" class="exercise-list"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">REGISTRO PESSOAL</p><h2>Registrar atividade</h2>
+          <form id="log-form">
+            <label>Exercício<select id="log-exercise"><option value="">Treino livre</option></select></label>
+            <label>Duração (minutos)<input type="number" id="log-duration" min="1" max="600" required></label>
+            <label>Data<input type="date" id="log-date" required></label>
+            <label>Observação<textarea id="log-note" maxlength="500" placeholder="Como foi sua atividade?"></textarea></label>
+            <button class="btn btn-primary full">Salvar atividade</button>
+          </form>
+          <p id="log-message" class="message" role="status"></p>
+        </section>
+      </div>
+
+      <section class="panel history-panel">
+        <div class="section-heading"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Histórico de atividades</h2></div></div>
+        <div id="history-list"></div>
+      </section>
+    </section>
+  </main>
+  <footer>FitDay • Organização e constância, sem pressa.</footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
